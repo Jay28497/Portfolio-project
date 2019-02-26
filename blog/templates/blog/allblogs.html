@@ -46,7 +46,7 @@
                 <a class="nav-item nav-link" href="https://www.linkedin.com/in/jaykanjariya1997/">LinkedId</a>
                 <a class="nav-item nav-link" href="https://github.com/Jay28497">GitHub</a>
                 <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
-                <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+                <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
             </div>
         </div>
     </nav>
@@ -54,37 +54,25 @@
 
 <main role="main">
 
-    <section class="jumbotron text-center">
-        <div class="container">
-            <h1 class="jumbotron-heading">HI! I'm Jay Kanjariya</h1>
-            <img src="{% static 'pic.jpg' %}" height="200">
-            <p class="lead text-muted">I am a computer science engineer. I'm full stack Web/Mobile Developer. Have powerful skills in Python/Django, Java, JavaScript, Flask. Always a CODER.</p>
-            <p>
-                <a href="mailto:jaykanjariya28@gmail.com" class="btn btn-primary my-2">Email me</a>
-            </p>
-        </div>
-    </section>
+    <div class="container">
+        <h1 class="text-center pt-3 pb-3">My blogs</h1>
+        <br>
+        <h2>Latest posts</h2>
+        <hr>
 
-    <div class="album py-5 bg-light">
-        <div class="container">
-            <div class="row">
+        {% for blog in blogs.all %}
+        <a href="{% url 'detail' blog.id %}"><h3> {{ blog.title }} </h3></a>
+        {{ blog.date}}
+        <br>
+        <img class="img-fluid" src="{{ blog.image.url }}" height="300" width="450">
+        <br>
+        <p>{{ blog.summary }}</p>
+        {% endfor %}
 
-                {% for job in jobs.all %}
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="bd-placeholder-img card-img-top" src="{{ job.image.url }}"</img>
-                        <div class="card-body">
-                            <p class="card-text">{{ job.summary }}</p>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-
-
-            </div>
-        </div>
     </div>
-    1
+    <br>
+    <br>
+
 </main>
 
 <footer class="text-muted">
