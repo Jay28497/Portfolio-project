@@ -64,7 +64,7 @@
         <a href="{% url 'detail' blog.id %}"><h3> {{ blog.title }} </h3></a>
         {{ blog.date}}
         <br>
-        <img class="img-fluid" src="{{ blog.image.url }}" height="300" width="450">
+        <img class="img-fluid img-thumbnail" src="{{ blog.image.url }}" height="300" width="450">
         <br>
         <p>{{ blog.summary }}</p>
         {% endfor %}
